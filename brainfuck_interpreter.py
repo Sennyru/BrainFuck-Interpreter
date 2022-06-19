@@ -1,8 +1,6 @@
 class BrainFuckInterpreter:
     def __init__(self, memory_size: int = 32768):
-        self.memory_size = memory_size
-        self._mem = bytearray(memory_size)
-        self._p = 0
+        self.reset(memory_size)
     
     def interpret(self, code: str):
         c = 0
@@ -41,6 +39,11 @@ class BrainFuckInterpreter:
             
             c += 1
     
+    def reset(self, memory_size):
+        self.memory_size = memory_size
+        self._mem = bytearray(self.memory_size)
+        self._p = 0
+    
     @property
     def pointer(self) -> int:
         return self._p
@@ -48,9 +51,4 @@ class BrainFuckInterpreter:
     @property
     def memory(self) -> bytes:
         return self._mem
-    
-    def reset(self):
-        self.memory_size = self.memory_size
-        self._mem = bytearray(self.memory_size)
-        self._p = 0
     

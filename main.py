@@ -1,6 +1,5 @@
 from brainfuck_interpreter import BrainFuckInterpreter
 
-
 def main():
     bf = BrainFuckInterpreter(10)
     while True:
