@@ -2,7 +2,7 @@ class BrainFuckInterpreter:
     def __init__(self, memory_size: int = 32768):
         self.reset(memory_size)
     
-    def interpret(self, code: str):
+    def interpret(self, code: str) -> int:
         c = 0
         while c < len(code):
             match code[c]:
@@ -38,6 +38,8 @@ class BrainFuckInterpreter:
                         continue
             
             c += 1
+        
+        return 0
     
     def reset(self, memory_size):
         self.memory_size = memory_size
